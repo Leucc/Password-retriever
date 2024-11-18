@@ -1,5 +1,19 @@
-import datetime
+from tkinter import filedialog
+import tkinter as tk
 
-today = datetime.datetime.now()
-formatted_time = today.strftime("%Y-%m-%d %H:%M:%S")
-print(formatted_time)
+def load_file():
+    password = []
+
+    root = tk.Tk()
+    root.withdraw()
+
+    filename = filedialog.askopenfilename()
+
+    with open(filename, 'r', encoding="utf-8") as f:
+        for line in f:
+            password.append(line)
+
+    print(password)
+
+if __name__ == '__main__':
+    load_file()
